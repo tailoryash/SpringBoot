@@ -1,18 +1,15 @@
 package com.simform.demoSpringMvc.Controller;
 
 import com.simform.demoSpringMvc.entities.User;
-import com.simform.demoSpringMvc.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class SendingController {
-    @Autowired
-    private UserService userService;
 
     @ModelAttribute
     public void commonData(Model model) {
@@ -53,7 +50,21 @@ public class SendingController {
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute User user,
                         Model model) {
-        this.userService.createUser(user);
+        if(user.getEmail().isBlank()) return "redirect:/signup";
         return "login";
     }
+
+//    @RequestMapping("/redirect-link")
+//    public RedirectView redirect() {
+//        RedirectView redirectView = new RedirectView();
+//        redirectView.setUrl("signup");
+//        return redirectView;
+//    }
+
+//    @RequestMapping("/welcome")
+//    public String welcome() {
+//        return "welcome";
+//    }
 }
+
+
