@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>About Learningwith Durgesh</h1>
+<h1>We are learning springboot myself.</h1>
+<h2> Name of Owner : <span th:text="${#strings.toUpperCase(name) }"></span></h2>
+<h2 th:text="${date}"/>
+<div th:with="a=5,b=7,n=${name}">
+    <h1 th:text="'value of a is ' + ${a}"></h1>
+    <h1>Local value of N is <span th:text=${n}></span></h1>
+</div>
+
+<ul>
+    <li th:each="n,status : ${names}">
+        <span th:text="${status.index+1} + ' ' +${n}"></span>
+    </li>
+</ul>
+
+<h1>
+    Use is <span th:style="${isActive} ? 'color:green' : 'color:red'"
+                 th:text="${isActive} ? 'ACTIVE' : 'NOT ACTIVE'"></span>
+</h1>
+<!--<h1 th:if="${gender}=="M" ">Male</h1>-->
+<!--<h1 th:unless="${gender=='F'}">Female</h1>-->
+
+<footer th:replace="fragment::footer1"></footer>
+</body>
+</html>

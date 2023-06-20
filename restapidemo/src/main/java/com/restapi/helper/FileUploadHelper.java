@@ -1,5 +1,6 @@
 package com.restapi.helper;
 
+import org.springframework.core.io.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.multipart.*;
 
@@ -8,7 +9,11 @@ import java.nio.file.*;
 
 @Component
 public class FileUploadHelper {
-    public final String UPLOAD_DIR = "/home/yash/Desktop/trainee-java learning/Springboot/restapidemo/src/main/resources/static/images/";
+//    public final String UPLOAD_DIR = "/home/yash/Desktop/trainee-java learning/Springboot/restapidemo/src/main/resources/static/images/";
+public final String UPLOAD_DIR = new ClassPathResource("static/images/").getFile().getAbsolutePath();
+
+    public FileUploadHelper() throws IOException {
+    }
 
     public boolean uploadFile(MultipartFile f) {
         boolean flag = false;

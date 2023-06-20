@@ -7,6 +7,7 @@ import org.springframework.http.*;
 import org.springframework.validation.beanvalidation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.*;
+import org.springframework.web.servlet.support.*;
 
 @RestController
 public class FileUploadController {
@@ -25,7 +26,8 @@ public class FileUploadController {
             }
             boolean flag = fileUploadHelper.uploadFile(file);
             if(flag){
-                return ResponseEntity.ok("File is successfully uploaded");
+//                return ResponseEntity.ok("File is successfully uploaded");
+                 return ResponseEntity.ok(ServletUriComponentsBuilder.fromCurrentContextPath().path("/images/").path(file.getOriginalFilename()).toUriString());
             }
         }
         catch (Exception e){
