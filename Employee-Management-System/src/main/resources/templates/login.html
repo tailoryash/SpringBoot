@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+        <html xmlns:th="http://www.thymeleaf.org">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width,
+        initial-scale=1.0">
+        <title>SIMFORM - Login</title>
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}"/>
+    <link rel="icon" type="image/x-icon" href="/images/simform-logo.png">
+
+</head>
+
+<body>
+<header>
+    <h1 class="heading">SIMFORM</h1>
+    <h3 class="title">Login</h3>
+</header>
+
+<!-- container div -->
+<div class="container">
+
+    <!-- upper button section to select
+        the login or signup form -->>
+    <div class="btn">
+        <button class="login">Login</button>
+    </div>
+
+    <!-- Form section that contains the
+        login and the signup form -->
+    <div class="form-section">
+
+        <!-- login form -->
+        <div class="login-box">
+
+            <input type="email"
+                   class="email ele"
+                   placeholder="youremail@email.com" th:value="${loginEmp.email}">
+            <input type="password"
+                   class="password ele"
+                   placeholder="password" name="password" th:value="${loginEmp.password}">
+            <button class="clkbtn">Login</button>
+        </div>
+
+    </div>
+</div>
+<script th:src="@{/js/index.js}"></script>
+</body>
+</html>

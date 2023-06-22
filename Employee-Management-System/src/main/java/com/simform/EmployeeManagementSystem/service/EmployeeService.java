@@ -1,5 +1,6 @@
 package com.simform.EmployeeManagementSystem.service;
 
+import com.simform.EmployeeManagementSystem.dto.*;
 import com.simform.EmployeeManagementSystem.entity.*;
 import com.simform.EmployeeManagementSystem.repository.*;
 import jakarta.servlet.http.*;
@@ -17,7 +18,6 @@ public class EmployeeService {
     public void addEmployee(Employee emp) {
         employeeRepository.save(emp);
     }
-
     public List<Employee> getAllEmp() {
         return employeeRepository.findAll();
     }

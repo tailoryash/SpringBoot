@@ -42,7 +42,7 @@
                 <div class="card-body">
                     <h4 class="text-center" style="color:rgb(239, 83, 102)">Update Employee's Details</h4>
 
-                    <form th:action="@{/update}" method="post" th:object="${emp}">
+                    <form th:action="@{~/employees/update}" method="post" th:object="${emp}">
                         <input type="hidden" th:value="${emp.id}" name="id">
                         <div class="form-group">
                             <label>Enter Full Name</label> <input type="text"
