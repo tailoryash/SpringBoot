@@ -67,22 +67,6 @@ header {
 	cursor: pointer;
 }
 
-.slider {
-	height: 60px;
-	width: 150px;
-	border-radius: 50px;
-	background-image: linear-gradient(to right,
-			rgb(255, 195, 110),
-			rgb(255, 146, 91));
-	position: absolute;
-	top: 20px;
-	left: 100px;
-	transition: all 0.5s ease-in-out;
-}
-
-.moveslider {
-	left: 250px;
-}
 
 .form-section {
 	height: 500px;
@@ -114,7 +98,7 @@ header {
 }
 
 .signup-box {
-	gap: 30px;
+	gap: 50px;
 }
 
 .ele {
@@ -141,6 +125,7 @@ header {
 	cursor: pointer;
 }
 
+
 /* For Responsiveness of the page */
 
 @media screen and (max-width: 650px) {
@@ -164,15 +149,6 @@ header {
 		font-size: 19px;
 	}
 
-	.slider {
-		height: 50px;
-		width: 100px;
-		left: 50px;
-	}
-
-	.moveslider {
-		left: 150px;
-	}
 
 	.form-section {
 		height: 500px;
@@ -193,6 +169,7 @@ header {
 		height: 50px;
 		width: 250px;
 		font-size: 15px;
+margin: 5px;
 	}
 
 	.clkbtn {
@@ -201,6 +178,8 @@ header {
 		font-size: 19px;
 	}
 }
+
+
 
 @media screen and (max-width: 320px) {
 	.container {
@@ -227,23 +206,11 @@ header {
 		font-size: 19px;
 	}
 
-	.slider {
-		height: 50px;
-		width: 100px;
-		left: 27px;
-	}
 
-	.moveslider {
-		left: 127px;
-	}
 
 	.form-section {
 		height: 500px;
 		width: 500px;
-	}
-
-	.form-section-move {
-		left: -250px;
 	}
 
 	.login-box,

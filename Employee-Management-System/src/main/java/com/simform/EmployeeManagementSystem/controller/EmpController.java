@@ -4,28 +4,28 @@ import com.simform.EmployeeManagementSystem.dto.*;
 import com.simform.EmployeeManagementSystem.entity.*;
 import com.simform.EmployeeManagementSystem.service.*;
 import jakarta.servlet.http.*;
+import jakarta.validation.*;
 import lombok.*;
 import lombok.extern.slf4j.*;
 import org.modelmapper.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import org.springframework.ui.*;
+import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.*;
-
 import java.util.*;
 import java.util.stream.*;
-
 @Controller
 @AllArgsConstructor
 @Slf4j
 @RequestMapping("/employees")
 public class EmpController {
+
     @Autowired
     private ModelMapper modelMapper;
+
     @Autowired
     private EmployeeService employeeService;
-
     @GetMapping("/signup")
     public String signup(Model model) {
         model.addAttribute("loginEmp", new LoginVO());
@@ -33,14 +33,17 @@ public class EmpController {
     }
 
     @PostMapping("/login")
-    public String validateForm(@ModelAttribute("loginEmp") LoginVO loginVO) {
+    public String validateForm(@Valid @ModelAttribute("loginEmp") LoginVO loginVO, BindingResult result) {
+        if (result.hasErrors()) {
+            System.out.println(result);
+            return "/signup";
+        }
         System.out.println(loginVO);
         return "login";
     }
 
     @GetMapping
     public String home(Model model) {
-//        List<Employee> allEmp = employeeService.getAllEmp();
         try {
             List<EmpDTO> allEmp = employeeService.getAllEmp().stream().map(employee -> modelMapper.map(employee, EmpDTO.class)).collect(Collectors.toList());
             model.addAttribute("emp", allEmp);
@@ -52,7 +55,6 @@ public class EmpController {
 
         return "index";
     }
-
     @GetMapping("/add")
     public String addEmpForm() {
         return "add_emp";
