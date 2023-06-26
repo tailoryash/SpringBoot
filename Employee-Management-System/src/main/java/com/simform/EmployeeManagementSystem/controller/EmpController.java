@@ -28,17 +28,17 @@ public class EmpController {
     private EmployeeService employeeService;
     @GetMapping("/signup")
     public String signup(Model model) {
-        model.addAttribute("loginEmp", new LoginVO());
+        model.addAttribute("loginEmp", new Admin());
         return "signup";
     }
 
     @PostMapping("/login")
-    public String validateForm(@Valid @ModelAttribute("loginEmp") LoginVO loginVO, BindingResult result) {
+    public String validateForm(@Valid @ModelAttribute("loginEmp") Admin admin, BindingResult result) {
         if (result.hasErrors()) {
             System.out.println(result);
             return "/signup";
         }
-        System.out.println(loginVO);
+        System.out.println(admin);
         return "login";
     }
 
