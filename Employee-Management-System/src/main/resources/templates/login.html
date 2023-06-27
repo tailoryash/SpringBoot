@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-        <html xmlns:th="http://www.thymeleaf.org">
-        <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-        content="width=device-width,
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
         initial-scale=1.0">
-        <title>SIMFORM - Login</title>
+    <title>SIMFORM - Login</title>
     <link rel="stylesheet"
           th:href="@{/css/style.css}"/>
     <link rel="icon" type="image/x-icon" href="/images/simform-logo.png">
@@ -33,14 +33,15 @@
 
         <!-- login form -->
         <div class="login-box">
-
-            <input type="email"
-                   class="email ele"
-                   placeholder="youremail@email.com" th:value="${loginEmp.emai}">
-            <input type="password"
-                   class="password ele"
-                   placeholder="password" name="passwoord" th:value="${loginEmp.password}">
-            <button class="clkbtn">Login</button>
+            <form th:action="@{/employees}" method="post" th:object="${adminLogin}">
+                <input type="email"
+                       class="email ele"
+                       placeholder="youremail@email.com" name = "email">
+                <input type="password"
+                       class="password ele"
+                       placeholder="password" name="password">
+                <button class="clkbtn">Login</button>
+            </form>
         </div>
 
     </div>

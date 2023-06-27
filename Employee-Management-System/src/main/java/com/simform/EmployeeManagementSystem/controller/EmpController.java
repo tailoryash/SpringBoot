@@ -26,9 +26,13 @@ public class EmpController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private AdminService adminService;
+
     @GetMapping("/signup")
     public String signup(Model model) {
-        model.addAttribute("loginEmp", new Admin());
+//        model.addAttribute("loginEmp");
         return "signup";
     }
 
@@ -37,12 +41,22 @@ public class EmpController {
         if (result.hasErrors()) {
             System.out.println(result);
             return "/signup";
+        }else{
+            adminService.addAdminUser(admin);
+            return "login";
         }
-        System.out.println(admin);
-        return "login";
     }
 
-    @GetMapping
+    @PostMapping("/")
+    public String validationLoggingDetails(@ModelAttribute("adminLogin") Admin admin){
+        adminService.
+        if(admin.getEmail().equals(){
+            return "/";
+        }
+        return "/login";
+    }
+
+   @PostMapping
     public String home(Model model) {
         try {
             List<EmpDTO> allEmp = employeeService.getAllEmp().stream().map(employee -> modelMapper.map(employee, EmpDTO.class)).collect(Collectors.toList());

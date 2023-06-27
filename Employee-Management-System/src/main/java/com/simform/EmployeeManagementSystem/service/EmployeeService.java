@@ -1,6 +1,5 @@
 package com.simform.EmployeeManagementSystem.service;
 
-import com.simform.EmployeeManagementSystem.dto.*;
 import com.simform.EmployeeManagementSystem.entity.*;
 import com.simform.EmployeeManagementSystem.repository.*;
 import jakarta.servlet.http.*;
@@ -15,15 +14,19 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+
+
     public void addEmployee(Employee emp) {
         employeeRepository.save(emp);
     }
+
     public List<Employee> getAllEmp() {
         return employeeRepository.findAll();
     }
-    public Employee getEmpById(int id){
+
+    public Employee getEmpById(int id) {
         Optional<Employee> emp = employeeRepository.findById(id);
-        if(emp.isPresent()){
+        if (emp.isPresent()) {
             return emp.get();
         }
         return null;
@@ -38,8 +41,9 @@ public class EmployeeService {
             ex.printStackTrace();
         }
     }
-public void deleteEmp(int id){
+
+    public void deleteEmp(int id) {
         employeeRepository.deleteById(id);
-}
+    }
 
 }

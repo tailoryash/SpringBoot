@@ -20,5 +20,5 @@ public class Admin {
     @NotBlank(message = "Employee password can't be empty")
     @Size(min = 3, max = 12, message = "Password must be between 3-12 characters !!")
     private String password;
-    private String role;
+
 }
