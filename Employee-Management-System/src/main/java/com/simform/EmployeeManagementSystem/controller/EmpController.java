@@ -49,10 +49,10 @@ public class EmpController {
 
     @PostMapping("/")
     public String validationLoggingDetails(@ModelAttribute("adminLogin") Admin admin){
-        adminService.
-        if(admin.getEmail().equals(){
-            return "/";
-        }
+//        adminService.
+//        if(admin.getEmail().equals(){
+//            return "/";
+//        }
         return "/login";
     }
 
